@@ -1,0 +1,43 @@
+" Notes {
+" Benoit Dequidt's personal vimrc file.
+"
+" TODO add a license
+" }
+
+" Basic {
+    set nocompatible
+" }
+
+
+" Bundles configuration {
+    let g:airline_powerline_fonts = 1
+    let g:solarized_termcolors=256
+    let g:airline_theme='solarized'
+
+    if filereadable(expand("~/dotfiles/vim/vimrc.bundles"))
+        source ~/dotfiles/vim/vimrc.bundles
+    endif
+ 
+    set shell=/bin/bash " fish/zsh specific
+" }
+
+" Display {
+    syntax enable
+    if has('gui_running')
+        set background=light
+    else
+        set background=dark
+    endif
+    colorscheme solarized
+    set encoding=UTF-8
+" }
+
+" Code formating {
+" Set Proper Tabs
+set tabstop=4
+set shiftwidth=4
+set smarttab
+set expandtab    
+
+" }
+
