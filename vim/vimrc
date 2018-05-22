@@ -1,28 +1,36 @@
 " Notes {
 " Benoit Dequidt's personal vimrc file.
-"
-" TODO add a license
 " }
 
-" Basic {
-    set nocompatible
-" }
+set nocompatible
 
-
-" Bundles configuration {
-    let g:airline_powerline_fonts = 1
+" Plugin configuration {
+    let g:airline_powerline_fonts=1
     let g:solarized_termcolors=256
     let g:airline_theme='solarized'
+
+    let g:NERDShutUp=1
+" }
+
+" Bundles configuration {
 
     if filereadable(expand("~/dotfiles/vim/vimrc.bundles"))
         source ~/dotfiles/vim/vimrc.bundles
     endif
- 
+
     set shell=/bin/bash " fish/zsh specific
 " }
 
+" Basic configuration {
+    filetype plugin indent on       " automatically detect file type
+    syntax on                       " syntax highlighting  
+    set mouse=a                     " automatically enable mouse usage  
+    set mousehide                   " hide cursor while typing
+    set history=1000                " increase history size
+    set hidden                      " allow buffer switching without saving
+" }
+
 " Display {
-    syntax enable
     if has('gui_running')
         set background=light
     else
@@ -30,14 +38,59 @@
     endif
     colorscheme solarized
     set encoding=UTF-8
+
+    set tabpagemax=10               " only show 10 tabs
+    set showmode                    " display the current mode
+    set cursorline                  " highlight current line
+
+    set backspace=indent,eol,start  " proper backspace
+    set number                      " display line numbers
+    set showmatch                   " show matching brackets
+    set incsearch                   " find as you type search
+    set hlsearch                    " highlight search
+    set ignorecase                  " case insensitive
+    set smartcase                   " case sensitive when upper case is used
+    set wildmenu                    " show list instead of completing
+    set wildmode=list:longest,full  " matches list first then longest common part then exact
+    set foldenable                  " auto fold code
+    set list                        " display spaces/tabs
+    " configure how to display spaces/tabs : only eol spaces
+    set listchars=tab:›\ ,trail:•,extends:#,nbsp:.
 " }
 
 " Code formating {
-" Set Proper Tabs
-set tabstop=4
-set shiftwidth=4
-set smarttab
-set expandtab    
+    set nowrap                      " do not wrap long lines
+    set autoindent                  " indent at the same level as previous line
+    " Set Proper Tabs
+    set tabstop=4                   " 4 columns == 1 indentation level
+    set shiftwidth=4                " use indent of 4 spaces
+    set smarttab
+    set expandtab                   " tabs are spaces
+    set softtabstop=4               " let backspace indent
 
+    " remove trailing space on save
+    autocmd FileType c,cpp,java,go,php,javascript,python,rust,xml,yml,perl,sql autocmd BufWritePre <buffer> %s/\s\+$//e
 " }
+
+" Manage splits and tabs {
+    set splitright                  " Put new window on the right side on split
+    set splitbelow                  " Put new window below on vsplit
+" }
+
+" Key (re)mapping {
+    " map some keys to switch between the windows
+    map <C-J> <C-W>j
+    map <C-K> <C-W>k
+    map <C-L> <C-W>l
+    map <C-H> <C-W>h
+
+    " toggle nerd tree
+    map <C-n> <plug>NERDTreeToggle<CR>
+
+    let mapleader = ','
+    " remove search highlight
+    nmap <silent> <leader>/ :set invhlsearch<CR>
+" }
+
+
 
