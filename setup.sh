@@ -39,4 +39,9 @@ log_status "Installing Tmux"
 install_file "$ROOT/tmux/tmux.conf"
 install_file "$ROOT/tmux/tmux.theme"
 log_section
+log_status "Installing git configuration"
+install_file "$ROOT/git/gitignore"
+# TODO install here some alias & configuration inside ~/.gitconfig
+# likely the best way is to add everithing using something like git --config global
+log_section
 log_status "Done!"
