@@ -24,9 +24,8 @@ install_file() {
     fi
     ln -s $src $dest
 }
-
-ROOT=$(dirname $0)
-
+SCRIPT=$(readlink -m $0)
+ROOT=$(dirname $SCRIPT)
 log_section
 log_status "Installing Vim"
 install_file "$ROOT/vim/vimrc"
