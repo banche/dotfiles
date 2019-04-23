@@ -6,7 +6,6 @@ log_status() {
 
 log_section() {
     echo "==============="
-
 }
 
 install_file() {
@@ -40,7 +39,14 @@ install_file "$ROOT/tmux/tmux.theme"
 log_section
 log_status "Installing git configuration"
 install_file "$ROOT/git/gitignore"
-# TODO install here some alias & configuration inside ~/.gitconfig
-# likely the best way is to add everithing using something like git --config global
+log_status "Installing git aliases"
+git config --global alias.c commit
+git config --global alias.l log
+git config --global alias.s status
+git config --global alias.ca commit --amend
+git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+git config --global alias.f fetch
+git config --global alias.cob checkout -b
+git config --global alias.co checkout
 log_section
 log_status "Done!"
