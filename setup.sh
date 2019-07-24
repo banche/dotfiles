@@ -39,6 +39,7 @@ install_file "$ROOT/tmux/tmux.theme"
 log_section
 log_status "Installing git configuration"
 install_file "$ROOT/git/gitignore"
+git config --global core.excludesfile "~/.gitignore"
 log_status "Installing git aliases"
 git config --global alias.c commit
 git config --global alias.l log
