@@ -69,7 +69,7 @@ set nocompatible
     set softtabstop=4               " let backspace indent
 
     " remove trailing space on save
-    autocmd FileType c,cpp,java,go,php,javascript,python,rust,xml,yml,perl,sql autocmd BufWritePre <buffer> %s/\s\+$//e
+    autocmd FileType c,cpp,java,go,php,javascript,python,rust,xml,yml,perl,sql,cmake autocmd BufWritePre <buffer> %s/\s\+$//e
 " }
 
 " Manage splits and tabs {
