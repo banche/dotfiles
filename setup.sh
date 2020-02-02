@@ -49,5 +49,6 @@ git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Crese
 git config --global alias.f fetch
 git config --global alias.cob checkout -b
 git config --global alias.co checkout
+git config --global alias.d diff
 log_section
 log_status "Done!"
