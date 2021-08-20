@@ -10,15 +10,12 @@ set nocompatible
     let g:airline_theme='solarized'
 
     let g:NERDShutUp=1
-" }
 
-" Bundles configuration {
-
-    if filereadable(expand("~/dotfiles/vim/vimrc.bundles"))
-        source ~/dotfiles/vim/vimrc.bundles
+    if filereadable(expand("~/dotfiles/vim/plugins.vim"))
+        source ~/dotfiles/vim/plugins.vim
     endif
 
-    set shell=/bin/bash " fish/zsh specific
+    set shell=/usr/bin/zsh
 " }
 
 " Basic configuration {
